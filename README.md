@@ -34,11 +34,15 @@ Además de todo lo anterior tenemos a un inversor muy importante que le gustan l
 ## Server API 
 ### GET hi:
 http://localhost:8080/api
+
+```
 {"description":"Hi developer!","version":"0.3.0"}
+```
 
 ### GET transactions :
 http://localhost:8080/api/transactions?all=false&numberPerPage=10
 http://localhost:8080/api/transactions?all=true&numberPerPage=30
+
 ```
 {"transactions":[{"transaction_id":"n4d9s86n3r","origin":{"id":"ING","lat":"-45.89765358649045","lng":"51.42390969869689","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exerci"},"destination":{"id":"MDA","lat":"14.543026546297313","lng":"69.08560348194658","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exerci"},"money_amount":"12401€","user_id":"vmjyktdse8","courier_id":"nhsl9mf","new_user":"no","created_at":"2016-09-06T07:31:06.050Z"}]}
 ```
