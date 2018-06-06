@@ -4,13 +4,14 @@ Citibox hiring exercise
 
 ## Intro
 En Citibox estamos actualizando nuestros paneles de gestión propios porque ahora mismo están hechos en COBOL y no encontramos gente que sepa COBOL :/ Para la primera versión vamos a tener un solo panel que muestre un listado de las transacciones que ocurren en la plataforma. Ahora mismo el equipo técnico está hasta arriba con unas nuevas funcionalidades así que necesitamos que nos echen un cable :)
+Los paneles actuales es una aplicación con muchas ventanas y diferentes tipos de usuarios (roles) y aunque esta es una primera iteratión, en un futuro queremos mover todos los paneles al nuevo sistema.
 
 ## Necesidades
 Partiendo de nuestra API necesitamos una página web que liste las transacciones que ya está dando el backend. Los chic@s de la oficina (gestión y control) nos cuentan unas primeras necesidades:
 
 ### Gente de gestión
 
-La gente de gestión es quien trata con nuestros clientes cuando estos se lian o no saben como seguir, son los primeros en detectar un problema en nuestra plataforma y necesitan toda la información posible. Además tienen unas ideas concretas para agilizar su trabajo:
+La gente de gestión es quien trata con nuestros clientes cuando estos se lían o no saben como seguir, son los primeros en detectar un problema en nuestra plataforma y necesitan toda la información posible. Además tienen unas ideas concretas para agilizar su trabajo:
 
 - Hay que aplicar unos descuentos en función de la cantidad de dinero:
     - Descuento del 30% si el dinero mayor que 8000€
