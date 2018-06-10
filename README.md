@@ -57,12 +57,15 @@ Además tenemos a un inversor muy importante que le gustan las páginas web en t
 ```
 cd server
 docker build -t server .
-docker run -i -t server
+
+El primer arranque: docker run -p 8080:8080 --name server server
+El resto de veces: docker start -a server
 ```
 
 ### Parar el server
+(En otro terminal)
 ```
-docker stop elated_tereshkova
+docker stop server
 ```
 
 ## Requisitos del ejercicio
