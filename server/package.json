@@ -1,6 +1,6 @@
 {
   "name": "express-es6-rest-api",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Starter project for an ES6 RESTful Express API",
   "main": "dist",
   "scripts": {

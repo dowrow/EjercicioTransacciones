@@ -12,6 +12,8 @@ app.server = http.createServer(app);
 // logger
 app.use(morgan('dev'));
 
+app.enable('etag');
+
 // 3rd party middleware
 app.use(cors({
 	exposedHeaders: config.corsHeaders
@@ -21,10 +23,15 @@ app.use(bodyParser.json({
 	limit : config.bodyLimit
 }));
 
+app.get('/', (req, res) => res.send('Citibox server working') )
+
 app.use('/api', api({ config }));
 
 app.use((req, res, next) => {
 	res.removeHeader("X-Powered-By");
+	res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  	res.header('Expires', '-1');
+  	res.header('Pragma', 'no-cache');
   	next();
 })
 
