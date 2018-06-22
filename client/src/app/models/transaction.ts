@@ -1,11 +1,21 @@
 export interface Transaction {
-  origin?: Location;
-  destination?: Location;
-  discountedPrice?: Number;
-  transaction_id: String;
-  money_amount: Number;
-  user_id: String;
-  courier_id: String;
-  new_user: String;
-  created_at: Date;
+  origin?: {
+    id: String;
+    lat: Number;
+    lng: Number;
+    description: String;
+  };
+  destination?: {
+    id: String;
+    lat: Number;
+    lng: Number;
+    description: String;
+  };
+  discountedMoneyAmount?: Number;
+  transactionId: String;
+  moneyAmount: Number;
+  userId: String;
+  courierId: String;
+  isNewUser: Boolean;
+  createdAt: Date;
 }
