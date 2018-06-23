@@ -20,6 +20,8 @@ import { MatOptionModule } from "@angular/material/core";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDialogModule } from "@angular/material/dialog";
 import { FormsModule } from "@angular/forms";
+import { StoreModule } from "@ngrx/store";
+import { roleReducer } from "./store/roles/reducer";
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { FormsModule } from "@angular/forms";
     MatButtonModule,
     MatOptionModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    StoreModule.forRoot({ role: roleReducer })
   ],
   providers: [],
   bootstrap: [AppComponent],

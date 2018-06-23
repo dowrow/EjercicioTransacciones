@@ -7,12 +7,14 @@ import { Role } from "../../models/role";
   styleUrls: ["./role-navigation.component.scss"]
 })
 export class RoleNavigationComponent implements OnInit {
+  // TODO: Move to store
   roles = Role;
 
   constructor() {}
 
   ngOnInit() {}
 
+  // TODO: Move to store
   setRole(role: Role) {
     console.log(`Set role ${role}`);
   }
