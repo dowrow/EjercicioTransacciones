@@ -10,6 +10,7 @@ import { PageNavigationComponent } from "./components/transaction-panel/page-nav
 import { TransactionOperationsComponent } from "./components/transaction-panel/transaction-operations/transaction-operations.component";
 import { TransactionTableComponent } from "./components/transaction-panel/transaction-table/transaction-table.component";
 import { LocationDetailComponent } from "./components/transaction-panel/transaction-table/location-detail/location-detail.component";
+import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -32,6 +33,8 @@ import { MatButtonModule } from "@angular/material/button";
     ServiceWorkerModule.register("/ngsw-worker.js", {
       enabled: environment.production
     }),
+    HttpModule,
+    HttpClientModule,
     NgbModule.forRoot(),
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -39,7 +42,7 @@ import { MatButtonModule } from "@angular/material/button";
     MatTableModule,
     MatButtonModule
   ],
-  providers: [HttpClientModule],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

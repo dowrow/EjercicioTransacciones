@@ -1,16 +1,17 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { RoleNavigationComponent } from './role-navigation.component';
+import { RoleNavigationComponent } from "./role-navigation.component";
+import { MatToolbarModule } from "@angular/material/toolbar";
 
-describe('RoleNavigationComponent', () => {
+describe("RoleNavigationComponent", () => {
   let component: RoleNavigationComponent;
   let fixture: ComponentFixture<RoleNavigationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RoleNavigationComponent ]
-    })
-    .compileComponents();
+      imports: [MatToolbarModule],
+      declarations: [RoleNavigationComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe('RoleNavigationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

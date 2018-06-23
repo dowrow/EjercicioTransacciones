@@ -4,6 +4,10 @@ import { TransactionPanelComponent } from "./transaction-panel.component";
 import { TransactionOperationsComponent } from "./transaction-operations/transaction-operations.component";
 import { TransactionTableComponent } from "./transaction-table/transaction-table.component";
 import { PageNavigationComponent } from "./page-navigation/page-navigation.component";
+import { MatTableModule } from "@angular/material/table";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { HttpModule } from "@angular/http";
+import { HttpClientModule } from "@angular/common/http";
 
 describe("TransactionPanelComponent", () => {
   let component: TransactionPanelComponent;
@@ -16,6 +20,12 @@ describe("TransactionPanelComponent", () => {
         TransactionOperationsComponent,
         TransactionTableComponent,
         PageNavigationComponent
+      ],
+      imports: [
+        NgbModule.forRoot(),
+        MatTableModule,
+        HttpModule,
+        HttpClientModule
       ]
     }).compileComponents();
   }));
