@@ -19,20 +19,34 @@
     <th mat-header-cell *matHeaderCellDef> Cantidad (€) </th>
     <td 
       mat-cell *matCellDef="let element"> 
-      <del *ngIf="applyDiscounts"> {{ element.moneyAmount | currency:'EUR':true }}<br/></del>
-      {{ getMoneyAmount(element) | currency:'EUR':true }} 
+      <del *ngIf="applyDiscounts"> 
+        {{ element.moneyAmount | currency:'EUR':'symbol-narrow' }}
+      </del>
+      {{ getMoneyAmount(element) | currency:'EUR':'symbol-narrow' }} 
     </td>
     
   </ng-container>
   
   <ng-container matColumnDef="origin">
     <th mat-header-cell *matHeaderCellDef> Origen </th>
-    <td mat-cell *matCellDef="let element"><button mat-raised-button>{{element.origin.id}}</button></td>
+    <td mat-cell *matCellDef="let element">
+      <button 
+        mat-raised-button
+        (click)="showLocationDetails(element.origin)">
+        {{element.origin.id}}
+      </button>
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="destination">
     <th mat-header-cell *matHeaderCellDef> Destino </th>
-    <td mat-cell *matCellDef="let element"><button mat-raised-button>{{element.destination.id}}</button></td>
+    <td mat-cell *matCellDef="let element">
+      <button 
+        mat-raised-button
+        (click)="showLocationDetails(element.destination)">
+        {{element.destination.id}}
+      </button>
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="requiresDocumentation">

@@ -1,3 +1,9 @@
-<p>
-  location-detail works!
-</p>
+<h1 mat-dialog-title>{{location.id}}</h1>
+<div mat-dialog-content>
+  <p>{{ location.description }}</p>
+  <small>Lat.: {{ location.lat }}</small><br/>
+  <small>Long.: {{ location.lng }}</small>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCloseClick()" cdkFocusInitial>Cerrar</button>
+</div>

@@ -18,6 +18,7 @@ import { MatTableModule } from "@angular/material/table";
 import { MatButtonModule } from "@angular/material/button";
 import { MatOptionModule } from "@angular/material/core";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatDialogModule } from "@angular/material/dialog";
 import { FormsModule } from "@angular/forms";
 
 @NgModule({
@@ -44,9 +45,11 @@ import { FormsModule } from "@angular/forms";
     MatTableModule,
     MatButtonModule,
     MatOptionModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LocationDetailComponent]
 })
 export class AppModule {}

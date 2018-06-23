@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Transaction } from "../../../models/transaction";
 import { TransactionService } from "../../../services/transaction.service";
+import { MatDialog } from "@angular/material/dialog";
+import { LocationDetailComponent } from "./location-detail/location-detail.component";
 
 @Component({
   selector: "transaction-table",
@@ -13,19 +15,23 @@ export class TransactionTableComponent implements OnInit {
   @Input() markDuplicates: Boolean;
   @Input() showUndocumented: Boolean;
 
-  constructor(private transactionService: TransactionService) {}
+  locationDetailsDialog;
+  constructor(
+    private transactionService: TransactionService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit() {}
 
   getDisplayedColumns() {
-    let columns = [
-      "transactionId",
-      "origin",
-      "destination",
-      "moneyAmount",
-      "userId",
-      "isNewUser"
-    ];
+    let columns = ["transactionId", "userId", "isNewUser", "moneyAmount"];
+    if (
+      this.transactions.length > 0 &&
+      this.transactions[0].origin &&
+      this.transactions[0].destination
+    ) {
+      columns = ["origin", "destination"].concat(columns);
+    }
     if (this.showUndocumented) {
       columns.push("requiresDocumentation");
     }
@@ -51,5 +57,12 @@ export class TransactionTableComponent implements OnInit {
 
   isUndocumented(element: Transaction) {
     return this.transactionService.isUndocumented(element);
+  }
+
+  showLocationDetails(location: Location) {
+    this.dialog.open(LocationDetailComponent, {
+      width: "250px",
+      data: location
+    });
   }
 }
