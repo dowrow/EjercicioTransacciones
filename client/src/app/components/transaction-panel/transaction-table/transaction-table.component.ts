@@ -24,9 +24,11 @@ export class TransactionTableComponent implements OnInit {
       "destination",
       "moneyAmount",
       "userId",
-      "isNewUser",
-      "requiresDocumentation"
+      "isNewUser"
     ];
+    if (this.showUndocumented) {
+      columns.push("requiresDocumentation");
+    }
     return columns;
   }
 
