@@ -1,7 +1,5 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
 import { PageNavigationComponent } from "./page-navigation.component";
-import { NgbModule, NgbPaginationConfig } from "@ng-bootstrap/ng-bootstrap";
 
 describe("PageNavigationComponent", () => {
   let component: PageNavigationComponent;
@@ -9,7 +7,6 @@ describe("PageNavigationComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [NgbModule.forRoot()],
       declarations: [PageNavigationComponent]
     }).compileComponents();
   }));

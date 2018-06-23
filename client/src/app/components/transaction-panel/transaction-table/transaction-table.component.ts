@@ -7,20 +7,32 @@ import { Transaction } from "../../../models/transaction";
   styleUrls: ["./transaction-table.component.scss"]
 })
 export class TransactionTableComponent implements OnInit {
-  @Input() page: number;
   @Input() transactions: Transaction[];
-
-  displayedColumns = [
-    "transactionId",
-    "origin",
-    "destination",
-    "moneyAmount",
-    "discountedMoneyAmount",
-    "userId",
-    "isNewUser"
-  ];
+  @Input() applyDiscounts: Boolean;
+  @Input() markDuplicates: Boolean;
+  @Input() showUndocumented: Boolean;
 
   constructor() {}
 
   ngOnInit() {}
+
+  getDisplayedColumns() {
+    let columns = [
+      "transactionId",
+      "origin",
+      "destination",
+      "moneyAmount",
+      "userId",
+      "isNewUser",
+      "requiresDocumentation"
+    ];
+    return columns;
+  }
+
+  isDuplicated(element: Transaction) {
+    const coincidentRows = this.transactions.filter(
+      transaction => transaction.transactionId === element.transactionId
+    );
+    return coincidentRows.length > 1;
+  }
 }

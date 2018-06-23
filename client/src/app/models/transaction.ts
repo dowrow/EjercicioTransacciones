@@ -11,7 +11,6 @@ export interface Transaction {
     lng: Number;
     description: String;
   };
-  discountedMoneyAmount?: Number;
   transactionId: String;
   moneyAmount: Number;
   userId: String;

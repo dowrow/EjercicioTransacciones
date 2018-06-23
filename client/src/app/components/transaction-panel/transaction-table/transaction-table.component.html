@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="transactions" class="mat-elevation-z8">
+<table mat-table [dataSource]="transactions" class="mat-elevation-z3">
 
   <ng-container matColumnDef="transactionId">
     <th mat-header-cell *matHeaderCellDef> Id. Transacción </th>
@@ -20,11 +20,6 @@
     <td mat-cell *matCellDef="let element"> {{element.moneyAmount}} </td>
   </ng-container>
   
-  <ng-container matColumnDef="discountedMoneyAmount">
-    <th mat-header-cell *matHeaderCellDef> Con descuento (€) </th>
-    <td mat-cell *matCellDef="let element"> {{element.discountedMoneyAmount}} </td>
-  </ng-container>
-
   <ng-container matColumnDef="origin">
     <th mat-header-cell *matHeaderCellDef> Origen </th>
     <td mat-cell *matCellDef="let element"><button mat-raised-button>{{element.origin.id}}</button></td>
@@ -35,7 +30,14 @@
     <td mat-cell *matCellDef="let element"><button mat-raised-button>{{element.destination.id}}</button></td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <ng-container matColumnDef="requiresDocumentation">
+    <th mat-header-cell *matHeaderCellDef> Requiere documentación </th>
+    <td mat-cell *matCellDef="let element">No</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="getDisplayedColumns()"></tr>
+  <tr mat-row *matRowDef="let row; columns: getDisplayedColumns();" [ngClass]="{
+    duplicatedTransacionRow: markDuplicates && isDuplicated(row)
+  }"></tr>
   
 </table>

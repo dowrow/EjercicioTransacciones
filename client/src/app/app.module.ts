@@ -3,7 +3,6 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { RoleNavigationComponent } from "./components/role-navigation/role-navigation.component";
 import { TransactionPanelComponent } from "./components/transaction-panel/transaction-panel.component";
 import { PageNavigationComponent } from "./components/transaction-panel/page-navigation/page-navigation.component";
@@ -17,6 +16,9 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatTableModule } from "@angular/material/table";
 import { MatButtonModule } from "@angular/material/button";
+import { MatOptionModule } from "@angular/material/core";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -35,12 +37,14 @@ import { MatButtonModule } from "@angular/material/button";
     }),
     HttpModule,
     HttpClientModule,
-    NgbModule.forRoot(),
+    FormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatOptionModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

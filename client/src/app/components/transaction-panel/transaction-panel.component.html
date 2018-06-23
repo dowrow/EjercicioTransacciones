@@ -1,4 +1,15 @@
 <h1>Transacciones</h1>
-<transaction-operations></transaction-operations>
-<transaction-table [transactions]="transactions"></transaction-table>
-<page-navigation [page]="page"></page-navigation>
+<transaction-operations
+  (operationSelected)="onOperationSelected($event)">
+</transaction-operations>
+<transaction-table 
+  [transactions]="transactions"
+  [applyDiscounts]="applyDiscounts"
+  [markDuplicates]="markDuplicates"
+  [showUndocumented]="showUndocumented"
+  >
+</transaction-table>
+<page-navigation 
+  [page]="page"
+  (pageChange)="onPageChange($event)">
+</page-navigation>
