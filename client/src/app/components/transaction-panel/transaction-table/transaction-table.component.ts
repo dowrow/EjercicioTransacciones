@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Transaction } from "../../../models/transaction";
+import { TransactionService } from "../../../services/transaction.service";
 
 @Component({
   selector: "transaction-table",
@@ -12,7 +13,7 @@ export class TransactionTableComponent implements OnInit {
   @Input() markDuplicates: Boolean;
   @Input() showUndocumented: Boolean;
 
-  constructor() {}
+  constructor(private transactionService: TransactionService) {}
 
   ngOnInit() {}
 
@@ -34,5 +35,19 @@ export class TransactionTableComponent implements OnInit {
       transaction => transaction.transactionId === element.transactionId
     );
     return coincidentRows.length > 1;
+  }
+
+  getMoneyAmount(element: Transaction) {
+    if (this.applyDiscounts) {
+      return this.transactionService.getDiscountedMoneyAmount(
+        element.moneyAmount
+      );
+    } else {
+      return element.moneyAmount;
+    }
+  }
+
+  isUndocumented(element: Transaction) {
+    return this.transactionService.isUndocumented(element);
   }
 }
