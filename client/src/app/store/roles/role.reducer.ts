@@ -1,5 +1,5 @@
 import { Role } from "../../models/role";
-import { SET_ROLE } from "./actions";
+import { SET_ROLE } from "./role.actions";
 
 export const roleReducer = (state = { role: Role.MANAGER }, action) => {
   switch (action.type) {

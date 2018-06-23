@@ -1,7 +1,12 @@
-<h1>Transacciones</h1>
+<h1>
+  {{ role == roles.MANAGER? 'Gestión': 'Control'}} de transacciones
+</h1>
+
 <transaction-operations
+  *ngIf="role === roles.MANAGER"
   (operationSelected)="onOperationSelected($event)">
 </transaction-operations>
+
 <transaction-table 
   [transactions]="transactions"
   [applyDiscounts]="applyDiscounts"
@@ -9,6 +14,7 @@
   [showUndocumented]="showUndocumented"
   >
 </transaction-table>
+
 <page-navigation 
   [page]="page"
   (pageChange)="onPageChange($event)">

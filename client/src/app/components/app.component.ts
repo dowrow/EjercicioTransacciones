@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { Role } from "./models/role";
-import { SET_ROLE } from "./store/roles/actions";
+import { Role } from "../models/role";
+import { SET_ROLE } from "../store/roles/role.actions";
 import { Store } from "@ngrx/store";
 
 @Component({

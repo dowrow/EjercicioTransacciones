@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { AppComponent } from "./app.component";
+import { AppComponent } from "./components/app.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { RoleNavigationComponent } from "./components/role-navigation/role-navigation.component";
@@ -20,8 +20,8 @@ import { MatOptionModule } from "@angular/material/core";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDialogModule } from "@angular/material/dialog";
 import { FormsModule } from "@angular/forms";
+import { roleReducer } from "./store/roles/role.reducer";
 import { StoreModule } from "@ngrx/store";
-import { roleReducer } from "./store/roles/reducer";
 
 @NgModule({
   declarations: [

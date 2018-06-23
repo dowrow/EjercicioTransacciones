@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Transaction } from "../../models/transaction";
 import { TransactionService } from "../../services/transaction.service";
 import { TransactionOperation } from "./transaction-operations/transaction-operation";
+import { Role } from "../../models/role";
 
 @Component({
   selector: "transaction-panel",
@@ -9,6 +10,10 @@ import { TransactionOperation } from "./transaction-operations/transaction-opera
   styleUrls: ["./transaction-panel.component.scss"]
 })
 export class TransactionPanelComponent implements OnInit {
+  roles = Role;
+
+  @Input() role: Role;
+
   // TODO move to store
   page = 0;
 
@@ -38,13 +43,12 @@ export class TransactionPanelComponent implements OnInit {
   }
 
   onPageChange(page) {
-    // TODO: Emit action in children
+    // TODO: Emit action
     this.page = page;
     this.getTransactions();
   }
 
   onOperationSelected(operation) {
-    console.log("op", operation);
     switch (operation) {
       case TransactionOperation.APPLY_DISCOUNTS:
         this.applyDiscounts = !this.applyDiscounts;

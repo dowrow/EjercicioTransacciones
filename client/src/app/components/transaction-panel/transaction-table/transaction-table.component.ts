@@ -10,12 +10,13 @@ import { LocationDetailComponent } from "./location-detail/location-detail.compo
   styleUrls: ["./transaction-table.component.scss"]
 })
 export class TransactionTableComponent implements OnInit {
-  @Input() transactions: Transaction[];
-  @Input() applyDiscounts: Boolean;
-  @Input() markDuplicates: Boolean;
-  @Input() showUndocumented: Boolean;
+  @Input() transactions: Transaction[] = [];
+  @Input() applyDiscounts: Boolean = false;
+  @Input() markDuplicates: Boolean = false;
+  @Input() showUndocumented: Boolean = false;
 
-  locationDetailsDialog;
+  locationDetailsDialog = {};
+
   constructor(
     private transactionService: TransactionService,
     private dialog: MatDialog

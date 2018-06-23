@@ -1,16 +1,35 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { LocationDetailComponent } from './location-detail.component';
-
-describe('LocationDetailComponent', () => {
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { LocationDetailComponent } from "./location-detail.component";
+import {
+  MatDialogModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from "@angular/material/dialog";
+describe("LocationDetailComponent", () => {
   let component: LocationDetailComponent;
   let fixture: ComponentFixture<LocationDetailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LocationDetailComponent ]
-    })
-    .compileComponents();
+      imports: [MatDialogModule],
+      declarations: [LocationDetailComponent],
+      providers: [
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        },
+        {
+          provide: MAT_DIALOG_DATA,
+          useValue: {
+            id: "BOL",
+            lat: "7.954615228907414",
+            lng: "64.66916126103237",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exerci"
+          }
+        }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +38,7 @@ describe('LocationDetailComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
