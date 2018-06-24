@@ -22,6 +22,9 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { FormsModule } from "@angular/forms";
 import { roleReducer } from "./store/roles/role.reducer";
 import { StoreModule } from "@ngrx/store";
+import { transactionReducer } from "./store/transactions/transaction.reducer";
+import { StartPollingEffects } from "./store/transactions/transaction.effects";
+import { EffectsModule } from "@ngrx/effects";
 
 @NgModule({
   declarations: [
@@ -49,7 +52,11 @@ import { StoreModule } from "@ngrx/store";
     MatOptionModule,
     MatCheckboxModule,
     MatDialogModule,
-    StoreModule.forRoot({ role: roleReducer })
+    StoreModule.forRoot({
+      role: roleReducer,
+      transaction: transactionReducer
+    }),
+    EffectsModule.forRoot([StartPollingEffects])
   ],
   providers: [],
   bootstrap: [AppComponent],
