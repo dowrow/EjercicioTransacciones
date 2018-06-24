@@ -4,9 +4,10 @@ import { Observable } from "rxjs";
 import { ServerTransaction } from "../models/server-transaction";
 import { Transaction } from "../models/transaction";
 import { TransactionResponse } from "../models/transactions-response";
+import { environment } from "../../environments/environment";
 
 const NUMBER_PER_PAGE = 10;
-const API_ROOT = "http://localhost:8080/api/";
+const API_ROOT = environment.apiServer + "/api/";
 const TRANSACTIONS_ENDPOINT = API_ROOT + "transactions/";
 const SPECIAL_LOCATIONS = ["ESP", "REU", "AND", "ATA"];
 const BIG_DISCOUNT_FLOOR = 8000;
