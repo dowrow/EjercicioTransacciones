@@ -3,7 +3,9 @@ import {
   TOGGLE_APPLY_DISCOUNTS,
   TOGGLE_MARK_DUPLICATES,
   TOGGLE_SHOW_UNDOCUMENTED,
-  STORE_TRANSACTIONS
+  STORE_TRANSACTIONS,
+  PREVIOUS_PAGE,
+  NEXT_PAGE
 } from "./transaction.actions";
 
 describe("TransactionReducer", () => {
@@ -148,6 +150,49 @@ describe("TransactionReducer", () => {
       expect(state.transactions.length).toBe(
         action.payload.transactions.length
       );
+    });
+
+    describe("PREVIOUS_PAGE action", () => {
+      it("should decrease page", () => {
+        const initialState = {
+          page: 1,
+          transactions: [],
+          applyDiscounts: false,
+          showUndocumented: false,
+          markDuplicates: false
+        };
+        const action = { type: PREVIOUS_PAGE };
+        const state = transactionReducer(initialState, action);
+        expect(state.page).toBe(0);
+      });
+
+      it("should not decrease page", () => {
+        const initialState = {
+          page: 0,
+          transactions: [],
+          applyDiscounts: false,
+          showUndocumented: false,
+          markDuplicates: false
+        };
+        const action = { type: PREVIOUS_PAGE };
+        const state = transactionReducer(initialState, action);
+        expect(state.page).toBe(0);
+      });
+    });
+  });
+
+  describe("NEXT_PAGE action", () => {
+    it("should increase page", () => {
+      const initialState = {
+        page: 0,
+        transactions: [],
+        applyDiscounts: false,
+        showUndocumented: false,
+        markDuplicates: false
+      };
+      const action = { type: NEXT_PAGE };
+      const state = transactionReducer(initialState, action);
+      expect(state.page).toBe(1);
     });
   });
 });
