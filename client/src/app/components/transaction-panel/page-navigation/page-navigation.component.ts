@@ -18,12 +18,10 @@ export class PageNavigationComponent implements OnInit {
   ngOnInit() {}
 
   onNextClick(event) {
-    this.page++;
     this.pageChange.emit(NEXT_PAGE);
   }
 
   onPreviousClick(event) {
-    this.page--;
     this.pageChange.emit(PREVIOUS_PAGE);
   }
 }

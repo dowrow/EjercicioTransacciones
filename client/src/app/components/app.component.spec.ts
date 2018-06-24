@@ -1,5 +1,5 @@
 import { HttpClientModule } from "@angular/common/http";
-import { async, TestBed } from "@angular/core/testing";
+import { async, TestBed, ComponentFixture } from "@angular/core/testing";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { MatButtonModule } from "@angular/material/button";
@@ -14,7 +14,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { EffectsModule } from "@ngrx/effects";
-import { StoreModule } from "@ngrx/store";
+import { StoreModule, Store } from "@ngrx/store";
 import { environment } from "../../environments/environment";
 import { roleReducer } from "../store/roles/role.reducer";
 import { TransactionEffects } from "../store/transactions/transaction.effects";
@@ -25,8 +25,19 @@ import { PageNavigationComponent } from "./transaction-panel/page-navigation/pag
 import { TransactionOperationsComponent } from "./transaction-panel/transaction-operations/transaction-operations.component";
 import { TransactionPanelComponent } from "./transaction-panel/transaction-panel.component";
 import { TransactionTableComponent } from "./transaction-panel/transaction-table/transaction-table.component";
+import {
+  TOGGLE_APPLY_DISCOUNTS,
+  TOGGLE_MARK_DUPLICATES,
+  TOGGLE_SHOW_UNDOCUMENTED
+} from "../store/transactions/transaction.actions";
+import { TransactionsModel } from "../store/transactions/transactions.model";
+import { HttpClient } from "selenium-webdriver/http";
 
 describe("AppComponent", () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  let store: Store<TransactionsModel>;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -61,10 +72,36 @@ describe("AppComponent", () => {
         TransactionOperationsComponent
       ]
     }).compileComponents();
+    store = TestBed.get(Store);
+    spyOn(store, "dispatch");
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   }));
+
   it("should create the app", async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
+  }));
+
+  it("should dispatch TOGGLE_APPLY_DISCOUNTS", async(() => {
+    component.onOperationSelected(TOGGLE_APPLY_DISCOUNTS);
+    expect(store.dispatch).toHaveBeenCalledWith({
+      type: TOGGLE_APPLY_DISCOUNTS
+    });
+  }));
+
+  it("should dispatch TOGGLE_MARK_DUPLICATES", async(() => {
+    component.onOperationSelected(TOGGLE_MARK_DUPLICATES);
+    expect(store.dispatch).toHaveBeenCalledWith({
+      type: TOGGLE_MARK_DUPLICATES
+    });
+  }));
+
+  it("should dispatch TOGGLE_SHOW_UNDOCUMENTED", async(() => {
+    component.onOperationSelected(TOGGLE_SHOW_UNDOCUMENTED);
+    expect(store.dispatch).toHaveBeenCalledWith({
+      type: TOGGLE_SHOW_UNDOCUMENTED
+    });
   }));
 });

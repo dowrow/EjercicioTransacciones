@@ -11,7 +11,7 @@ import {
 } from "./transaction.actions";
 import { TransactionsModel } from "./transactions.model";
 
-const initialState: TransactionsModel = {
+export const initialState: TransactionsModel = {
   page: 0,
   transactions: [],
   applyDiscounts: false,

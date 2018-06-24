@@ -20,4 +20,20 @@ describe("PageNavigationComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
+
+  it("should update the page", () => {
+    component.page = 9;
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector("span").innerText).toBe(
+      "Página 10"
+    );
+  });
+
+  it("should disable previous button", () => {
+    component.page = 0;
+    fixture.detectChanges();
+    expect(
+      fixture.nativeElement.querySelector(".previous:disabled")
+    ).toBeTruthy();
+  });
 });
