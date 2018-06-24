@@ -9,14 +9,15 @@ import {
   DISABLE_OPERATIONS
 } from "./transaction.actions";
 import { TransactionService } from "../../services/transaction.service";
-import { sample } from "rxjs/operators";
+import { PollingFailed, POLLING_FAILED } from "./transaction.actions";
 
 const initialState: TransactionsModel = {
   page: 0,
   transactions: [],
   applyDiscounts: false,
   showUndocumented: false,
-  markDuplicates: false
+  markDuplicates: false,
+  pollingFailed: false
 };
 
 export const transactionReducer = (state = initialState, action) => {
@@ -39,8 +40,11 @@ export const transactionReducer = (state = initialState, action) => {
         ...state,
         transactions: action.payload.transactions.map(
           TransactionService.parseServerTransaction
-        )
+        ),
+        pollingFailed: false
       };
+    case POLLING_FAILED:
+      return { ...state, pollingFailed: true };
     case NEXT_PAGE:
       return { ...state, page: state.page + 1 };
     case PREVIOUS_PAGE:

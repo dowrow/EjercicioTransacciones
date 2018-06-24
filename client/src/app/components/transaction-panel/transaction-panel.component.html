@@ -4,20 +4,26 @@
   </h1>
 </header>
 
+<mat-card *ngIf="transactionsModel.pollingFailed">
+  <p>Has perdido la conexión, las transacciones no se actualizarán en tiempo real.</p>
+</mat-card>
+
 <transaction-operations
   *ngIf="role === roles.MANAGER"
   (operationSelected)="onOperationSelected($event)">
 </transaction-operations>
 
 <transaction-table
-  [transactions]="transactions"
-  [applyDiscounts]="applyDiscounts"
-  [markDuplicates]="markDuplicates"
-  [showUndocumented]="showUndocumented"
+  *ngIf="transactionsModel"
+  [transactions]="transactionsModel.transactions"
+  [applyDiscounts]="transactionsModel.applyDiscounts"
+  [markDuplicates]="transactionsModel.markDuplicates"
+  [showUndocumented]="transactionsModel.showUndocumented"
   >
 </transaction-table>
 
 <page-navigation 
-  [page]="page"
+  *ngIf="transactionsModel && !transactionsModel.pollingFailed"
+  [page]="transactionsModel.page"
   (pageChange)="onPageChange($event)">
 </page-navigation>

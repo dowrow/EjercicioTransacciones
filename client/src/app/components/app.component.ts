@@ -2,17 +2,9 @@ import { Component } from "@angular/core";
 import { Role } from "../models/role";
 import { SET_ROLE } from "../store/roles/role.actions";
 import { Store } from "@ngrx/store";
-import {
-  START_POLLING,
-  NEXT_PAGE,
-  PREVIOUS_PAGE,
-  TOGGLE_SHOW_UNDOCUMENTED
-} from "../store/transactions/transaction.actions";
+import { START_POLLING } from "../store/transactions/transaction.actions";
 import { Transaction } from "../models/transaction";
-import {
-  TOGGLE_APPLY_DISCOUNTS,
-  TOGGLE_MARK_DUPLICATES
-} from "../store/transactions/transaction.actions";
+import { TransactionsModel } from "../store/transactions/transactions.model";
 
 @Component({
   selector: "app-root",
@@ -21,13 +13,9 @@ import {
 })
 export class AppComponent {
   private role: Role;
-  private transactions: Transaction[];
-  private page: number;
+  private transactionsModel: TransactionsModel;
   private roleSubscription;
   private transactionSubscription;
-  private applyDiscounts;
-  private markDuplicates;
-  private showUndocumented;
 
   constructor(private store: Store<any>) {
     this.roleSubscription = this.store.select("role").subscribe(roleModel => {
@@ -36,11 +24,7 @@ export class AppComponent {
     this.transactionSubscription = this.store
       .select("transaction")
       .subscribe(transactionsModel => {
-        this.transactions = transactionsModel.transactions;
-        this.page = transactionsModel.page;
-        this.applyDiscounts = transactionsModel.applyDiscounts;
-        this.markDuplicates = transactionsModel.markDuplicates;
-        this.showUndocumented = transactionsModel.showUndocumented;
+        this.transactionsModel = transactionsModel;
       });
   }
 
@@ -54,7 +38,6 @@ export class AppComponent {
   }
 
   onOperationSelected(operation) {
-    console.log("op", operation);
     this.store.dispatch({ type: operation });
   }
 
@@ -67,7 +50,7 @@ export class AppComponent {
     this.store.dispatch({
       type: START_POLLING,
       payload: {
-        page: this.page,
+        page: this.transactionsModel.page,
         role: this.role
       }
     });

@@ -6,4 +6,5 @@ export interface TransactionsModel {
   applyDiscounts: boolean;
   showUndocumented: boolean;
   markDuplicates: boolean;
+  pollingFailed: boolean;
 }

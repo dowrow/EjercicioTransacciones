@@ -6,7 +6,8 @@ import {
   STORE_TRANSACTIONS,
   PREVIOUS_PAGE,
   NEXT_PAGE,
-  DISABLE_OPERATIONS
+  DISABLE_OPERATIONS,
+  POLLING_FAILED
 } from "./transaction.actions";
 
 describe("TransactionReducer", () => {
@@ -17,7 +18,8 @@ describe("TransactionReducer", () => {
         transactions: [],
         applyDiscounts: false,
         showUndocumented: false,
-        markDuplicates: false
+        markDuplicates: false,
+        pollingFailed: false
       };
       const action = {};
       const state = transactionReducer(initialState, action);
@@ -32,7 +34,8 @@ describe("TransactionReducer", () => {
         transactions: [],
         applyDiscounts: false,
         showUndocumented: false,
-        markDuplicates: false
+        markDuplicates: false,
+        pollingFailed: false
       };
       const action = { type: TOGGLE_APPLY_DISCOUNTS };
       const state = transactionReducer(initialState, action);
@@ -45,7 +48,8 @@ describe("TransactionReducer", () => {
         transactions: [],
         applyDiscounts: true,
         showUndocumented: false,
-        markDuplicates: false
+        markDuplicates: false,
+        pollingFailed: false
       };
       const action = { type: TOGGLE_APPLY_DISCOUNTS };
       const state = transactionReducer(initialState, action);
@@ -60,7 +64,8 @@ describe("TransactionReducer", () => {
         transactions: [],
         applyDiscounts: false,
         showUndocumented: false,
-        markDuplicates: false
+        markDuplicates: false,
+        pollingFailed: false
       };
       const action = { type: TOGGLE_MARK_DUPLICATES };
       const state = transactionReducer(initialState, action);
@@ -73,7 +78,8 @@ describe("TransactionReducer", () => {
         transactions: [],
         applyDiscounts: false,
         showUndocumented: false,
-        markDuplicates: true
+        markDuplicates: true,
+        pollingFailed: false
       };
       const action = { type: TOGGLE_MARK_DUPLICATES };
       const state = transactionReducer(initialState, action);
@@ -88,7 +94,8 @@ describe("TransactionReducer", () => {
         transactions: [],
         applyDiscounts: false,
         showUndocumented: false,
-        markDuplicates: false
+        markDuplicates: false,
+        pollingFailed: false
       };
       const action = { type: TOGGLE_SHOW_UNDOCUMENTED };
       const state = transactionReducer(initialState, action);
@@ -101,7 +108,8 @@ describe("TransactionReducer", () => {
         transactions: [],
         applyDiscounts: false,
         showUndocumented: true,
-        markDuplicates: false
+        markDuplicates: false,
+        pollingFailed: false
       };
       const action = { type: TOGGLE_SHOW_UNDOCUMENTED };
       const state = transactionReducer(initialState, action);
@@ -116,7 +124,8 @@ describe("TransactionReducer", () => {
         transactions: [],
         applyDiscounts: true,
         showUndocumented: true,
-        markDuplicates: true
+        markDuplicates: true,
+        pollingFailed: false
       };
       const action = { type: DISABLE_OPERATIONS };
       const state = transactionReducer(initialState, action);
@@ -133,7 +142,8 @@ describe("TransactionReducer", () => {
         transactions: [],
         applyDiscounts: false,
         showUndocumented: false,
-        markDuplicates: false
+        markDuplicates: false,
+        pollingFailed: false
       };
       const action = {
         type: STORE_TRANSACTIONS,
@@ -168,6 +178,7 @@ describe("TransactionReducer", () => {
       expect(state.transactions.length).toBe(
         action.payload.transactions.length
       );
+      expect(state.pollingFailed).toBeFalsy();
     });
   });
 
@@ -178,7 +189,8 @@ describe("TransactionReducer", () => {
         transactions: [],
         applyDiscounts: false,
         showUndocumented: false,
-        markDuplicates: false
+        markDuplicates: false,
+        pollingFailed: false
       };
       const action = { type: PREVIOUS_PAGE };
       const state = transactionReducer(initialState, action);
@@ -191,7 +203,8 @@ describe("TransactionReducer", () => {
         transactions: [],
         applyDiscounts: false,
         showUndocumented: false,
-        markDuplicates: false
+        markDuplicates: false,
+        pollingFailed: false
       };
       const action = { type: PREVIOUS_PAGE };
       const state = transactionReducer(initialState, action);
@@ -206,11 +219,28 @@ describe("TransactionReducer", () => {
         transactions: [],
         applyDiscounts: false,
         showUndocumented: false,
-        markDuplicates: false
+        markDuplicates: false,
+        pollingFailed: false
       };
       const action = { type: NEXT_PAGE };
       const state = transactionReducer(initialState, action);
       expect(state.page).toBe(1);
+    });
+  });
+
+  describe("POLLING_FAILED action", () => {
+    it("should set pollingFailed to true", () => {
+      const initialState = {
+        page: 0,
+        transactions: [],
+        applyDiscounts: false,
+        showUndocumented: false,
+        markDuplicates: false,
+        pollingFailed: false
+      };
+      const action = { type: POLLING_FAILED };
+      const state = transactionReducer(initialState, action);
+      expect(state.pollingFailed).toBeTruthy();
     });
   });
 });

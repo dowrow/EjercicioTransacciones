@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
-import { Transaction } from "../../models/transaction";
 import { Role } from "../../models/role";
-import * as transactionActions from "./../../store/transactions/transaction.actions";
+import { TransactionsModel } from "../../store/transactions/transactions.model";
 
 @Component({
   selector: "transaction-panel",
@@ -9,12 +8,8 @@ import * as transactionActions from "./../../store/transactions/transaction.acti
   styleUrls: ["./transaction-panel.component.scss"]
 })
 export class TransactionPanelComponent implements OnInit {
-  @Input() role: Role;
-  @Input() page = 0;
-  @Input() transactions: Transaction[] = [];
-  @Input() applyDiscounts: boolean = false;
-  @Input() markDuplicates: boolean = false;
-  @Input() showUndocumented: boolean = false;
+  @Input() role: Role = Role.MANAGER;
+  @Input() transactionsModel: TransactionsModel;
   @Output() pageChange = new EventEmitter();
   @Output() operationSelected = new EventEmitter();
 
@@ -24,9 +19,7 @@ export class TransactionPanelComponent implements OnInit {
 
   ngOnInit() {}
 
-  ngOnChanges(changes) {
-    console.log("changed somtehing", changes);
-  }
+  ngOnChanges() {}
 
   onPageChange(page) {
     this.pageChange.emit(page);

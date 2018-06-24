@@ -1,13 +1,10 @@
 <role-navigation
+  [role]="role"
   (setRole)="setRole($event)">
 </role-navigation>
 <transaction-panel
-  [page]="page"
-  [transactions]="transactions"
+  [transactionsModel]="transactionsModel"
   [role]="role"
-  [applyDiscounts]="applyDiscounts"
-  [markDuplicates]="markDuplicates"
-  [showUndocumented]="showUndocumented"
   (pageChange)="onPageChange($event)"
   (operationSelected)="onOperationSelected($event)">
 </transaction-panel>

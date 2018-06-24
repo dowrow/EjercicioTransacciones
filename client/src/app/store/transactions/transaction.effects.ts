@@ -8,13 +8,10 @@ import {
 } from "./transaction.actions";
 import { TransactionService } from "../../services/transaction.service";
 import { interval } from "rxjs";
-import { map, switchMap, catchError, startWith } from "rxjs/operators";
+import { map, switchMap, catchError, startWith, retry } from "rxjs/operators";
 import { Role } from "../../models/role";
 import * as transactionActions from "./transaction.actions";
-import { NEXT_PAGE, PREVIOUS_PAGE } from "./transaction.actions";
-import { SET_ROLE } from "../roles/role.actions";
-
-const POLLING_TIMEOUT = 5000;
+const POLLING_TIMEOUT = 2000;
 const TRANSACTIONS_PER_PAGE = 10;
 
 @Injectable()
@@ -32,18 +29,23 @@ export class TransactionEffects {
         map(() => action)
       );
     }),
-    map((action: transactionActions.StartPolling) => action),
-    switchMap(action => {
-      console.log("polling", action);
-      return this.transactionService.getTransactions(
-        action.payload.page,
-        TRANSACTIONS_PER_PAGE,
-        action.payload.role === Role.MANAGER
-      );
-    }),
-    map(transactionResponse => {
-      return { type: STORE_TRANSACTIONS, payload: transactionResponse };
-    }),
-    catchError(err => of({ type: POLLING_FAILED, payload: err }))
+    map((action: transactionActions.StartPolling) => action.payload),
+    switchMap(payload =>
+      this.transactionService
+        .getTransactions(
+          payload.page,
+          TRANSACTIONS_PER_PAGE,
+          payload.role === Role.MANAGER
+        )
+        .pipe(
+          map(transactionResponse => {
+            return {
+              type: STORE_TRANSACTIONS,
+              payload: transactionResponse
+            };
+          }),
+          catchError(() => of({ type: POLLING_FAILED }))
+        )
+    )
   );
 }

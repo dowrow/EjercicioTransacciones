@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
 import { Role } from "../../models/role";
 
 @Component({
@@ -7,6 +7,7 @@ import { Role } from "../../models/role";
   styleUrls: ["./role-navigation.component.scss"]
 })
 export class RoleNavigationComponent implements OnInit {
+  @Input() role: Role = Role.MANAGER;
   @Output() setRole = new EventEmitter();
 
   roles = Role;

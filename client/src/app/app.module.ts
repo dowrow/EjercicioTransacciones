@@ -18,6 +18,7 @@ import { MatTableModule } from "@angular/material/table";
 import { MatButtonModule } from "@angular/material/button";
 import { MatOptionModule } from "@angular/material/core";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatCardModule } from "@angular/material/card";
 import { MatDialogModule } from "@angular/material/dialog";
 import { FormsModule } from "@angular/forms";
 import { roleReducer } from "./store/roles/role.reducer";
@@ -54,6 +55,7 @@ import { RoleEffects } from "./store/roles/role.effects";
     MatOptionModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatCardModule,
     StoreModule.forRoot({
       role: roleReducer,
       transaction: transactionReducer
