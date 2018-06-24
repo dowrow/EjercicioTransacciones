@@ -9,6 +9,12 @@ const NUMBER_PER_PAGE = 10;
 const API_ROOT = "http://localhost:8080/api/";
 const TRANSACTIONS_ENDPOINT = API_ROOT + "transactions/";
 const SPECIAL_LOCATIONS = ["ESP", "REU", "AND", "ATA"];
+const BIG_DISCOUNT_FLOOR = 8000;
+const MEDIUM_DISCOUNT_FLOOR = 4000;
+const SMALL_DISCOUNT_FLOOR = 1000;
+const BIG_DISCOUNT = 0.3;
+const MEDIUM_DISCOUNT = 0.2;
+const SMALL_DISCOUNT = 0.1;
 
 @Injectable({
   providedIn: "root"
@@ -68,13 +74,12 @@ export class TransactionService {
   }
 
   getDiscountedMoneyAmount(amount: number): number {
-    // TODO remove magic numbers
-    if (amount > 8000) {
-      return Math.floor((amount - amount * 0.3) * 100) / 100;
-    } else if (amount > 4000) {
-      return Math.floor((amount - amount * 0.2) * 100) / 100;
-    } else if (amount > 1000) {
-      return Math.floor((amount - amount * 0.1) * 100) / 100;
+    if (amount > BIG_DISCOUNT_FLOOR) {
+      return Math.floor((amount - amount * BIG_DISCOUNT) * 100) / 100;
+    } else if (amount > MEDIUM_DISCOUNT_FLOOR) {
+      return Math.floor((amount - amount * MEDIUM_DISCOUNT) * 100) / 100;
+    } else if (amount > SMALL_DISCOUNT_FLOOR) {
+      return Math.floor((amount - amount * SMALL_DISCOUNT) * 100) / 100;
     } else {
       return amount;
     }
