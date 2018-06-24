@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
 import { Transaction } from "../../../models/transaction";
 import { TransactionService } from "../../../services/transaction.service";
-import { MatDialog } from "@angular/material/dialog";
 import { LocationDetailComponent } from "./location-detail/location-detail.component";
 
 @Component({

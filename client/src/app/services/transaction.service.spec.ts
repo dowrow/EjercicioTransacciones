@@ -1,6 +1,5 @@
+import { asyncData } from "../testing/async-observable-helpers";
 import { TransactionService } from "./transaction.service";
-import { ServerTransaction } from "../models/server-transaction";
-import { asyncError, asyncData } from "../testing/async-observable-helpers";
 
 describe("TransactionService", () => {
   let httpClientSpy: { get: jasmine.Spy };

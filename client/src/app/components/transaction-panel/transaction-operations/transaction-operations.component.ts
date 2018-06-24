@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import * as transactionActions from "./../../../store/transactions/transaction.actions";
+
 @Component({
   selector: "transaction-operations",
   templateUrl: "./transaction-operations.component.html",

@@ -1,9 +1,8 @@
 import { Component } from "@angular/core";
+import { Store } from "@ngrx/store";
 import { Role } from "../models/role";
 import { SET_ROLE } from "../store/roles/role.actions";
-import { Store } from "@ngrx/store";
 import { START_POLLING } from "../store/transactions/transaction.actions";
-import { Transaction } from "../models/transaction";
 import { TransactionsModel } from "../store/transactions/transactions.model";
 
 @Component({
@@ -12,8 +11,8 @@ import { TransactionsModel } from "../store/transactions/transactions.model";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  private role: Role;
-  private transactionsModel: TransactionsModel;
+  role: Role;
+  transactionsModel: TransactionsModel;
   private roleSubscription;
   private transactionSubscription;
 

@@ -1,14 +1,14 @@
-import { transactionReducer } from "./transaction.reducer";
 import {
+  DISABLE_OPERATIONS,
+  NEXT_PAGE,
+  POLLING_FAILED,
+  PREVIOUS_PAGE,
+  STORE_TRANSACTIONS,
   TOGGLE_APPLY_DISCOUNTS,
   TOGGLE_MARK_DUPLICATES,
-  TOGGLE_SHOW_UNDOCUMENTED,
-  STORE_TRANSACTIONS,
-  PREVIOUS_PAGE,
-  NEXT_PAGE,
-  DISABLE_OPERATIONS,
-  POLLING_FAILED
+  TOGGLE_SHOW_UNDOCUMENTED
 } from "./transaction.actions";
+import { transactionReducer } from "./transaction.reducer";
 
 describe("TransactionReducer", () => {
   describe("undefined action", () => {

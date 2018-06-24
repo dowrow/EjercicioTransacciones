@@ -1,8 +1,7 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { RoleNavigationComponent } from "./role-navigation.component";
-import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { RoleNavigationComponent } from "./role-navigation.component";
 
 describe("RoleNavigationComponent", () => {
   let component: RoleNavigationComponent;

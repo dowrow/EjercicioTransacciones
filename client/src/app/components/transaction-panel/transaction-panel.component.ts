@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { Role } from "../../models/role";
 import { TransactionsModel } from "../../store/transactions/transactions.model";
 

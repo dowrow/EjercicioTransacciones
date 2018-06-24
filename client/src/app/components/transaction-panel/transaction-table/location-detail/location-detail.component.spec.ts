@@ -1,10 +1,11 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { LocationDetailComponent } from "./location-detail.component";
 import {
   MatDialogModule,
   MatDialogRef,
   MAT_DIALOG_DATA
 } from "@angular/material/dialog";
+import { LocationDetailComponent } from "./location-detail.component";
+
 describe("LocationDetailComponent", () => {
   let component: LocationDetailComponent;
   let fixture: ComponentFixture<LocationDetailComponent>;

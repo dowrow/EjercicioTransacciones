@@ -1,15 +1,15 @@
-import { TransactionsModel } from "./transactions.model";
+import { TransactionService } from "../../services/transaction.service";
 import {
+  DISABLE_OPERATIONS,
+  NEXT_PAGE,
+  POLLING_FAILED,
+  PREVIOUS_PAGE,
+  STORE_TRANSACTIONS,
   TOGGLE_APPLY_DISCOUNTS,
   TOGGLE_MARK_DUPLICATES,
-  TOGGLE_SHOW_UNDOCUMENTED,
-  STORE_TRANSACTIONS,
-  NEXT_PAGE,
-  PREVIOUS_PAGE,
-  DISABLE_OPERATIONS
+  TOGGLE_SHOW_UNDOCUMENTED
 } from "./transaction.actions";
-import { TransactionService } from "../../services/transaction.service";
-import { PollingFailed, POLLING_FAILED } from "./transaction.actions";
+import { TransactionsModel } from "./transactions.model";
 
 const initialState: TransactionsModel = {
   page: 0,
@@ -20,7 +20,7 @@ const initialState: TransactionsModel = {
   pollingFailed: false
 };
 
-export const transactionReducer = (state = initialState, action) => {
+export function transactionReducer(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_APPLY_DISCOUNTS:
       return { ...state, applyDiscounts: !state.applyDiscounts };
@@ -52,4 +52,4 @@ export const transactionReducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
+}

@@ -1,16 +1,16 @@
 import { Injectable } from "@angular/core";
-import { Effect, Actions } from "@ngrx/effects";
-import { of } from "rxjs";
-import {
-  START_POLLING,
-  STORE_TRANSACTIONS,
-  POLLING_FAILED
-} from "./transaction.actions";
-import { TransactionService } from "../../services/transaction.service";
-import { interval } from "rxjs";
-import { map, switchMap, catchError, startWith, retry } from "rxjs/operators";
+import { Actions, Effect } from "@ngrx/effects";
+import { interval, of } from "rxjs";
+import { catchError, map, startWith, switchMap } from "rxjs/operators";
 import { Role } from "../../models/role";
+import { TransactionService } from "../../services/transaction.service";
 import * as transactionActions from "./transaction.actions";
+import {
+  POLLING_FAILED,
+  START_POLLING,
+  STORE_TRANSACTIONS
+} from "./transaction.actions";
+
 const POLLING_TIMEOUT = 2000;
 const TRANSACTIONS_PER_PAGE = 10;
 

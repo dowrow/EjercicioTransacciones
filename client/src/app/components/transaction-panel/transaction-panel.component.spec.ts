@@ -1,15 +1,14 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { TransactionPanelComponent } from "./transaction-panel.component";
-import { TransactionOperationsComponent } from "./transaction-operations/transaction-operations.component";
-import { TransactionTableComponent } from "./transaction-table/transaction-table.component";
-import { PageNavigationComponent } from "./page-navigation/page-navigation.component";
-import { MatTableModule } from "@angular/material/table";
-import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { HttpModule } from "@angular/http";
+import { MatCardModule } from "@angular/material/card";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDialogModule } from "@angular/material/dialog";
-import { MatCardModule } from "@angular/material/card";
+import { MatTableModule } from "@angular/material/table";
+import { PageNavigationComponent } from "./page-navigation/page-navigation.component";
+import { TransactionOperationsComponent } from "./transaction-operations/transaction-operations.component";
+import { TransactionPanelComponent } from "./transaction-panel.component";
+import { TransactionTableComponent } from "./transaction-table/transaction-table.component";
 
 describe("TransactionPanelComponent", () => {
   let component: TransactionPanelComponent;

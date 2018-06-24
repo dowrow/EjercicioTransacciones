@@ -1,11 +1,10 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { TransactionTableComponent } from "./transaction-table.component";
-import { MatTableModule } from "@angular/material/table";
-import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
-import { MatDialogModule, MatDialogRef } from "@angular/material/dialog";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { HttpModule } from "@angular/http";
 import { MatCardModule } from "@angular/material/card";
+import { MatDialogModule, MatDialogRef } from "@angular/material/dialog";
+import { MatTableModule } from "@angular/material/table";
+import { TransactionTableComponent } from "./transaction-table.component";
 
 describe("TransactionTableComponent", () => {
   let component: TransactionTableComponent;

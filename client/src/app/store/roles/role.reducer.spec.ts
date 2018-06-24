@@ -1,6 +1,6 @@
 import { Role } from "../../models/role";
-import { roleReducer } from "./role.reducer";
 import { SET_ROLE } from "./role.actions";
+import { roleReducer } from "./role.reducer";
 
 describe("RoleReducer", () => {
   describe("undefined action", () => {

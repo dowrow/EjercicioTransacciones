@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { TransactionOperationsComponent } from "./transaction-operations.component";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { TransactionOperationsComponent } from "./transaction-operations.component";
 
 describe("TransactionOperationsComponent", () => {
   let component: TransactionOperationsComponent;

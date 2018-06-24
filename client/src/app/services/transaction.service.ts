@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable, throwError } from "rxjs";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import { ServerTransaction } from "../models/server-transaction";
 import { Transaction } from "../models/transaction";
 import { TransactionResponse } from "../models/transactions-response";

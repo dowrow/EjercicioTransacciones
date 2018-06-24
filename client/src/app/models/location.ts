@@ -1,6 +1,6 @@
 export interface Location {
-  id: String;
-  lat: Number;
-  lng: Number;
-  description: String;
+  id: string;
+  lat: number;
+  lng: number;
+  description: string;
 }
