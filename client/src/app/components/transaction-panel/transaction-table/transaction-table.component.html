@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="transactions" class="mat-elevation-z3">
+<table *ngIf="transactions.length > 0" mat-table [dataSource]="transactions" class="mat-elevation-z3">
 
   <ng-container matColumnDef="transactionId">
     <th mat-header-cell *matHeaderCellDef> Id. Transacción </th>
@@ -65,3 +65,7 @@
   }"></tr>
   
 </table>
+
+<mat-card *ngIf="!transactions.length">
+  <p>No hay más transacciones.</p>
+</mat-card>

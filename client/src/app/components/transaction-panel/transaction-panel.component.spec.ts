@@ -9,6 +9,7 @@ import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatCardModule } from "@angular/material/card";
 
 describe("TransactionPanelComponent", () => {
   let component: TransactionPanelComponent;
@@ -28,6 +29,7 @@ describe("TransactionPanelComponent", () => {
         HttpClientModule,
         MatCheckboxModule,
         MatDialogModule,
+        MatCardModule,
         HttpClientModule
       ]
     }).compileComponents();

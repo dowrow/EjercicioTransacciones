@@ -24,6 +24,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { transactionReducer } from "../store/transactions/transaction.reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { TransactionEffects } from "../store/transactions/transaction.effects";
+import { MatCardModule } from "@angular/material/card";
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
@@ -44,6 +45,7 @@ describe("AppComponent", () => {
         MatOptionModule,
         MatCheckboxModule,
         MatDialogModule,
+        MatCardModule,
         StoreModule.forRoot({
           role: roleReducer,
           transaction: transactionReducer

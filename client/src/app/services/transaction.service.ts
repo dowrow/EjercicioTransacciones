@@ -73,7 +73,7 @@ export class TransactionService {
     }
   }
 
-  getDiscountedMoneyAmount(amount: number): number {
+  static getDiscountedMoneyAmount(amount: number): number {
     if (amount > BIG_DISCOUNT_FLOOR) {
       return Math.floor((amount - amount * BIG_DISCOUNT) * 100) / 100;
     } else if (amount > MEDIUM_DISCOUNT_FLOOR) {
@@ -85,7 +85,7 @@ export class TransactionService {
     }
   }
 
-  isUndocumented(transaction: Transaction) {
+  static isUndocumented(transaction: Transaction) {
     if (transaction.origin && transaction.destination) {
       return (
         SPECIAL_LOCATIONS.indexOf(transaction.origin.id) > -1 ||

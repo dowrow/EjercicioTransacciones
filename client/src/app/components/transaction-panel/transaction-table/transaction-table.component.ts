@@ -17,10 +17,7 @@ export class TransactionTableComponent implements OnInit {
 
   locationDetailsDialog = {};
 
-  constructor(
-    private transactionService: TransactionService,
-    private dialog: MatDialog
-  ) {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit() {}
 
@@ -55,16 +52,14 @@ export class TransactionTableComponent implements OnInit {
 
   getMoneyAmount(element: Transaction) {
     if (this.applyDiscounts) {
-      return this.transactionService.getDiscountedMoneyAmount(
-        element.moneyAmount
-      );
+      return TransactionService.getDiscountedMoneyAmount(element.moneyAmount);
     } else {
       return element.moneyAmount;
     }
   }
 
   isUndocumented(element: Transaction) {
-    return this.transactionService.isUndocumented(element);
+    return TransactionService.isUndocumented(element);
   }
 
   showLocationDetails(location: Location) {

@@ -5,6 +5,7 @@ import { MatTableModule } from "@angular/material/table";
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
 import { MatDialogModule, MatDialogRef } from "@angular/material/dialog";
+import { MatCardModule } from "@angular/material/card";
 
 describe("TransactionTableComponent", () => {
   let component: TransactionTableComponent;
@@ -13,7 +14,13 @@ describe("TransactionTableComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TransactionTableComponent],
-      imports: [MatTableModule, MatDialogModule, HttpModule, HttpClientModule],
+      imports: [
+        MatTableModule,
+        MatDialogModule,
+        MatCardModule,
+        HttpModule,
+        HttpClientModule
+      ],
       providers: [
         {
           provide: MatDialogRef,
