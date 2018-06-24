@@ -1,5 +1,5 @@
 header {
-  padding: 50px;
+  padding: 40px;
   background: rgb(11, 133, 229);
   color: #ffffff;
   text-align: center;
@@ -11,4 +11,8 @@ transaction-table {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.connection-lost {
+  text-align: center;
 }

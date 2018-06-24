@@ -1,4 +1,14 @@
 <mat-toolbar color="white">
-  <button (click)="setRole.emit(roles.MANAGER)" mat-raised-button color="primary">Gestión</button>
-  <button (click)="setRole.emit(roles.CONTROLLER)" mat-raised-button color="primary">Control</button>
+  <button 
+    (click)="setRole.emit(roles.MANAGER)" 
+    mat-raised-button 
+    [color]="getButtonColor(roles.MANAGER)">
+    Gestión
+  </button>
+  <button 
+    (click)="setRole.emit(roles.CONTROLLER)" 
+    mat-raised-button 
+    [color]="getButtonColor(roles.CONTROLLER)">
+    Control
+  </button>
 </mat-toolbar>

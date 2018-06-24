@@ -15,4 +15,8 @@ export class RoleNavigationComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  getButtonColor(role: Role) {
+    return role === this.role ? "primary" : "secondary";
+  }
 }

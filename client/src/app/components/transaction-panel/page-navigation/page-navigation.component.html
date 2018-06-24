@@ -1,9 +1,9 @@
 <nav>
-  <button class="previous" (click)="onPreviousClick($event)" [disabled]="page < 1" mat-raised-button>
+  <button class="previous" (click)="onPreviousClick($event)" [disabled]="page < 1" mat-raised-button color="primary">
     Anterior
   </button>
   <span>Página {{ page + 1 }}</span>
-  <button class="next" (click)="onNextClick($event)" mat-raised-button>
+  <button class="next" (click)="onNextClick($event)" mat-raised-button color="primary">
     Siguiente
   </button>
 </nav>
