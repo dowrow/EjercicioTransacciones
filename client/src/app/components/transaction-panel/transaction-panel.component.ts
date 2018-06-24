@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 import { Transaction } from "../../models/transaction";
 import { Role } from "../../models/role";
+import * as transactionActions from "./../../store/transactions/transaction.actions";
 
 @Component({
   selector: "transaction-panel",
@@ -22,6 +23,10 @@ export class TransactionPanelComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  ngOnChanges(changes) {
+    console.log("changed somtehing", changes);
+  }
 
   onPageChange(page) {
     this.pageChange.emit(page);

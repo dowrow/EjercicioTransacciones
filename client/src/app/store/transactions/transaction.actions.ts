@@ -8,6 +8,7 @@ export const TOGGLE_MARK_DUPLICATES = "TOGGLE_MARK_DUPLICATES";
 export const TOGGLE_SHOW_UNDOCUMENTED = "TOGGLE_SHOW_UNDOCUMENTED";
 export const STORE_TRANSACTIONS = "STORE_TRANSACTIONS";
 export const POLLING_FAILED = "POLLING_FAILED";
+export const DISABLE_OPERATIONS = "DISABLE_OPERATIONS";
 
 export class StartPolling implements Action {
   readonly type = START_POLLING;
@@ -34,6 +35,11 @@ export class ToggleMarkDuplicates implements Action {
   constructor(public payload: any) {}
 }
 
+export class DisableOperations implements Action {
+  readonly type = DISABLE_OPERATIONS;
+  constructor(public payload: any) {}
+}
+
 export class ToggleShowUndocumented implements Action {
   readonly type = TOGGLE_SHOW_UNDOCUMENTED;
   constructor(public payload: any) {}
@@ -56,5 +62,6 @@ export type All =
   | ToggleApplyDiscounts
   | ToggleMarkDuplicates
   | ToggleShowUndocumented
+  | DisableOperations
   | StoreTransactions
   | PollingFailed;

@@ -81,9 +81,13 @@ export class TransactionService {
   }
 
   isUndocumented(transaction: Transaction) {
-    return (
-      SPECIAL_LOCATIONS.indexOf(transaction.origin.id) > -1 ||
-      SPECIAL_LOCATIONS.indexOf(transaction.destination.id) > -1
-    );
+    if (transaction.origin && transaction.destination) {
+      return (
+        SPECIAL_LOCATIONS.indexOf(transaction.origin.id) > -1 ||
+        SPECIAL_LOCATIONS.indexOf(transaction.destination.id) > -1
+      );
+    } else {
+      return false;
+    }
   }
 }

@@ -5,9 +5,11 @@ import {
   TOGGLE_SHOW_UNDOCUMENTED,
   STORE_TRANSACTIONS,
   NEXT_PAGE,
-  PREVIOUS_PAGE
+  PREVIOUS_PAGE,
+  DISABLE_OPERATIONS
 } from "./transaction.actions";
 import { TransactionService } from "../../services/transaction.service";
+import { sample } from "rxjs/operators";
 
 const initialState: TransactionsModel = {
   page: 0,
@@ -25,6 +27,13 @@ export const transactionReducer = (state = initialState, action) => {
       return { ...state, markDuplicates: !state.markDuplicates };
     case TOGGLE_SHOW_UNDOCUMENTED:
       return { ...state, showUndocumented: !state.showUndocumented };
+    case DISABLE_OPERATIONS:
+      return {
+        ...state,
+        applyDiscounts: false,
+        markDuplicates: false,
+        showUndocumented: false
+      };
     case STORE_TRANSACTIONS:
       return {
         ...state,

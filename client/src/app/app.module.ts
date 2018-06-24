@@ -26,6 +26,7 @@ import { transactionReducer } from "./store/transactions/transaction.reducer";
 import { TransactionEffects } from "./store/transactions/transaction.effects";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { RoleEffects } from "./store/roles/role.effects";
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
       role: roleReducer,
       transaction: transactionReducer
     }),
-    EffectsModule.forRoot([TransactionEffects]),
+    EffectsModule.forRoot([RoleEffects, TransactionEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production

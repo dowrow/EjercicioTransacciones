@@ -5,7 +5,8 @@ import {
   TOGGLE_SHOW_UNDOCUMENTED,
   STORE_TRANSACTIONS,
   PREVIOUS_PAGE,
-  NEXT_PAGE
+  NEXT_PAGE,
+  DISABLE_OPERATIONS
 } from "./transaction.actions";
 
 describe("TransactionReducer", () => {
@@ -105,6 +106,23 @@ describe("TransactionReducer", () => {
       const action = { type: TOGGLE_SHOW_UNDOCUMENTED };
       const state = transactionReducer(initialState, action);
       expect(state.showUndocumented).toBeFalsy();
+    });
+  });
+
+  describe("DISABLE_OPERATIONS action", () => {
+    it("should diable all operations page", () => {
+      const initialState = {
+        page: 0,
+        transactions: [],
+        applyDiscounts: true,
+        showUndocumented: true,
+        markDuplicates: true
+      };
+      const action = { type: DISABLE_OPERATIONS };
+      const state = transactionReducer(initialState, action);
+      expect(state.applyDiscounts).toBeFalsy();
+      expect(state.showUndocumented).toBeFalsy();
+      expect(state.markDuplicates).toBeFalsy();
     });
   });
 
