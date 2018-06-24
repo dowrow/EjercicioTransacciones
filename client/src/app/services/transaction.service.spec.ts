@@ -1,4 +1,4 @@
-import { asyncData } from "../testing/async-observable-helpers";
+import { asyncData } from "../testing/helpers";
 import { TransactionService } from "./transaction.service";
 
 describe("TransactionService", () => {
