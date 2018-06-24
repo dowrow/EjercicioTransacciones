@@ -3,7 +3,9 @@ import {
   TOGGLE_APPLY_DISCOUNTS,
   TOGGLE_MARK_DUPLICATES,
   TOGGLE_SHOW_UNDOCUMENTED,
-  STORE_TRANSACTIONS
+  STORE_TRANSACTIONS,
+  NEXT_PAGE,
+  PREVIOUS_PAGE
 } from "./transaction.actions";
 
 const initialState: TransactionsModel = {
@@ -24,6 +26,10 @@ export const transactionReducer = (state = initialState, action) => {
       return { ...state, showUndocumented: !state.showUndocumented };
     case STORE_TRANSACTIONS:
       return { ...state, transactions: action.payload.transactions };
+    case NEXT_PAGE:
+      return { ...state, page: state.page + 1 };
+    case PREVIOUS_PAGE:
+      return { ...state, page: state.page > 1 ? state.page - 1 : 0 };
     default:
       return state;
   }
