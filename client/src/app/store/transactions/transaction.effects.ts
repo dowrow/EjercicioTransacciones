@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Effect, Actions } from "@ngrx/effects";
-import { Observable, of } from "rxjs";
+import { of } from "rxjs";
 import {
   START_POLLING,
   STORE_TRANSACTIONS,
@@ -8,22 +8,17 @@ import {
 } from "./transaction.actions";
 import { TransactionService } from "../../services/transaction.service";
 import { interval } from "rxjs";
-import {
-  map,
-  switchMap,
-  catchError,
-  skipUntil,
-  startWith
-} from "rxjs/operators";
+import { map, switchMap, catchError, startWith } from "rxjs/operators";
 import { Role } from "../../models/role";
-import { Action } from "@ngrx/store";
 import * as transactionActions from "./transaction.actions";
+import { NEXT_PAGE, PREVIOUS_PAGE } from "./transaction.actions";
+import { SET_ROLE } from "../roles/role.actions";
 
 const POLLING_TIMEOUT = 5000;
 const TRANSACTIONS_PER_PAGE = 10;
 
 @Injectable()
-export class StartPollingEffects {
+export class TransactionEffects {
   constructor(
     private transactionService: TransactionService,
     private actions$: Actions
@@ -38,14 +33,14 @@ export class StartPollingEffects {
       );
     }),
     map((action: transactionActions.StartPolling) => action),
-    switchMap(action =>
-      this.transactionService.getTransactions(
+    switchMap(action => {
+      console.log("polling", action);
+      return this.transactionService.getTransactions(
         action.payload.page,
         TRANSACTIONS_PER_PAGE,
         action.payload.role === Role.MANAGER
-      )
-    ),
-
+      );
+    }),
     map(transactionResponse => {
       return { type: STORE_TRANSACTIONS, payload: transactionResponse };
     }),

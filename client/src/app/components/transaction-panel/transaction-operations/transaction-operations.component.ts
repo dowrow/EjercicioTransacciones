@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { TransactionOperation } from "./transaction-operation";
-
+import * as transactionActions from "./../../../store/transactions/transaction.actions";
 @Component({
   selector: "transaction-operations",
   templateUrl: "./transaction-operations.component.html",
@@ -9,7 +8,7 @@ import { TransactionOperation } from "./transaction-operation";
 export class TransactionOperationsComponent implements OnInit {
   @Output() operationSelected = new EventEmitter();
 
-  operations = TransactionOperation;
+  operations = transactionActions;
 
   constructor() {}
 

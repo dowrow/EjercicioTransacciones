@@ -35,7 +35,9 @@ export class TransactionService {
     return this.http.get<TransactionResponse>(endpoint);
   }
 
-  parseServerTransaction(serverTransaction: ServerTransaction): Transaction {
+  static parseServerTransaction(
+    serverTransaction: ServerTransaction
+  ): Transaction {
     let transaction = {
       transactionId: serverTransaction.transaction_id.valueOf(),
       moneyAmount: Number(

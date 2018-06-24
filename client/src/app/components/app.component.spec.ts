@@ -23,7 +23,7 @@ import { MatOptionModule } from "@angular/material/core";
 import { MatDialogModule } from "@angular/material/dialog";
 import { transactionReducer } from "../store/transactions/transaction.reducer";
 import { EffectsModule } from "@ngrx/effects";
-import { StartPollingEffects } from "../store/transactions/transaction.effects";
+import { TransactionEffects } from "../store/transactions/transaction.effects";
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
@@ -48,7 +48,7 @@ describe("AppComponent", () => {
           role: roleReducer,
           transaction: transactionReducer
         }),
-        EffectsModule.forRoot([StartPollingEffects])
+        EffectsModule.forRoot([TransactionEffects])
       ],
       declarations: [
         AppComponent,

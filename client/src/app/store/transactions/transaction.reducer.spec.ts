@@ -151,33 +151,33 @@ describe("TransactionReducer", () => {
         action.payload.transactions.length
       );
     });
+  });
 
-    describe("PREVIOUS_PAGE action", () => {
-      it("should decrease page", () => {
-        const initialState = {
-          page: 1,
-          transactions: [],
-          applyDiscounts: false,
-          showUndocumented: false,
-          markDuplicates: false
-        };
-        const action = { type: PREVIOUS_PAGE };
-        const state = transactionReducer(initialState, action);
-        expect(state.page).toBe(0);
-      });
+  describe("PREVIOUS_PAGE action", () => {
+    it("should decrease page", () => {
+      const initialState = {
+        page: 1,
+        transactions: [],
+        applyDiscounts: false,
+        showUndocumented: false,
+        markDuplicates: false
+      };
+      const action = { type: PREVIOUS_PAGE };
+      const state = transactionReducer(initialState, action);
+      expect(state.page).toBe(0);
+    });
 
-      it("should not decrease page", () => {
-        const initialState = {
-          page: 0,
-          transactions: [],
-          applyDiscounts: false,
-          showUndocumented: false,
-          markDuplicates: false
-        };
-        const action = { type: PREVIOUS_PAGE };
-        const state = transactionReducer(initialState, action);
-        expect(state.page).toBe(0);
-      });
+    it("should not decrease page", () => {
+      const initialState = {
+        page: 0,
+        transactions: [],
+        applyDiscounts: false,
+        showUndocumented: false,
+        markDuplicates: false
+      };
+      const action = { type: PREVIOUS_PAGE };
+      const state = transactionReducer(initialState, action);
+      expect(state.page).toBe(0);
     });
   });
 

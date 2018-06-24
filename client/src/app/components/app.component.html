@@ -2,5 +2,12 @@
   (setRole)="setRole($event)">
 </role-navigation>
 <transaction-panel
-  [role]="role">
+  [page]="page"
+  [transactions]="transactions"
+  [role]="role"
+  [applyDiscounts]="applyDiscounts"
+  [markDuplicates]="markDuplicates"
+  [showUndocumented]="showUndocumented"
+  (pageChange)="onPageChange($event)"
+  (operationSelected)="onOperationSelected($event)">
 </transaction-panel>

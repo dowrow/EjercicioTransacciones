@@ -7,6 +7,7 @@ import {
   NEXT_PAGE,
   PREVIOUS_PAGE
 } from "./transaction.actions";
+import { TransactionService } from "../../services/transaction.service";
 
 const initialState: TransactionsModel = {
   page: 0,
@@ -25,7 +26,12 @@ export const transactionReducer = (state = initialState, action) => {
     case TOGGLE_SHOW_UNDOCUMENTED:
       return { ...state, showUndocumented: !state.showUndocumented };
     case STORE_TRANSACTIONS:
-      return { ...state, transactions: action.payload.transactions };
+      return {
+        ...state,
+        transactions: action.payload.transactions.map(
+          TransactionService.parseServerTransaction
+        )
+      };
     case NEXT_PAGE:
       return { ...state, page: state.page + 1 };
     case PREVIOUS_PAGE:

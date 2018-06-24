@@ -23,8 +23,9 @@ import { FormsModule } from "@angular/forms";
 import { roleReducer } from "./store/roles/role.reducer";
 import { StoreModule } from "@ngrx/store";
 import { transactionReducer } from "./store/transactions/transaction.reducer";
-import { StartPollingEffects } from "./store/transactions/transaction.effects";
+import { TransactionEffects } from "./store/transactions/transaction.effects";
 import { EffectsModule } from "@ngrx/effects";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,11 @@ import { EffectsModule } from "@ngrx/effects";
       role: roleReducer,
       transaction: transactionReducer
     }),
-    EffectsModule.forRoot([StartPollingEffects])
+    EffectsModule.forRoot([TransactionEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],
