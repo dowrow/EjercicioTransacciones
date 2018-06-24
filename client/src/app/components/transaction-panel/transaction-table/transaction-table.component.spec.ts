@@ -4,11 +4,7 @@ import { TransactionTableComponent } from "./transaction-table.component";
 import { MatTableModule } from "@angular/material/table";
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
-import {
-  MatDialogModule,
-  MatDialogRef,
-  MAT_DIALOG_DATA
-} from "@angular/material/dialog";
+import { MatDialogModule, MatDialogRef } from "@angular/material/dialog";
 
 describe("TransactionTableComponent", () => {
   let component: TransactionTableComponent;

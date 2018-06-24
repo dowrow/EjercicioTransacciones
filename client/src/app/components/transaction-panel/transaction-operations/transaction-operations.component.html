@@ -1,3 +1,5 @@
-<mat-checkbox (change)="operationSelected.emit(operations.APPLY_DISCOUNTS)">Aplicar descuentos</mat-checkbox>
-<mat-checkbox (change)="operationSelected.emit(operations.MARK_DUPLICATES)">Marcar duplicados</mat-checkbox>
-<mat-checkbox (change)="operationSelected.emit(operations.SHOW_UNDOCUMENTED)">Ver si requieren documentación</mat-checkbox>
+<section>
+  <mat-checkbox (change)="operationSelected.emit(operations.APPLY_DISCOUNTS)">Aplicar descuentos</mat-checkbox>
+  <mat-checkbox (change)="operationSelected.emit(operations.MARK_DUPLICATES)">Marcar duplicados</mat-checkbox>
+  <mat-checkbox (change)="operationSelected.emit(operations.SHOW_UNDOCUMENTED)">Ver si requieren documentación</mat-checkbox>
+</section>

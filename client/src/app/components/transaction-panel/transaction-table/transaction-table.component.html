@@ -49,6 +49,11 @@
     </td>
   </ng-container>
 
+  <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef> Fecha y hora</th>
+      <td mat-cell *matCellDef="let element"> {{ element.createdAt | date:'dd/MM/yyyy, HH:mm'}} </td>
+    </ng-container>
+
   <ng-container matColumnDef="requiresDocumentation">
     <th mat-header-cell *matHeaderCellDef> Requiere documentación </th>
     <td mat-cell *matCellDef="let element">{{ isUndocumented(element)? 'Sí': 'No' }}</td>

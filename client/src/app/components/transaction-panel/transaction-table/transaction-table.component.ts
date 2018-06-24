@@ -25,7 +25,16 @@ export class TransactionTableComponent implements OnInit {
   ngOnInit() {}
 
   getDisplayedColumns() {
-    let columns = ["transactionId", "userId", "isNewUser", "moneyAmount"];
+    let columns = [
+      "createdAt",
+      "transactionId",
+      "userId",
+      "isNewUser",
+      "moneyAmount"
+    ];
+    if (this.showUndocumented) {
+      columns = columns.concat(["requiresDocumentation"]);
+    }
     if (
       this.transactions.length > 0 &&
       this.transactions[0].origin &&
@@ -33,9 +42,7 @@ export class TransactionTableComponent implements OnInit {
     ) {
       columns = ["origin", "destination"].concat(columns);
     }
-    if (this.showUndocumented) {
-      columns.push("requiresDocumentation");
-    }
+
     return columns;
   }
 

@@ -1,6 +1,8 @@
-<h1>
-  {{ role == roles.MANAGER? 'Gestión': 'Control'}} de transacciones
-</h1>
+<header>
+  <h1>
+    {{ role == roles.MANAGER? 'Gestión': 'Control'}} de transacciones
+  </h1>
+</header>
 
 <transaction-operations
   *ngIf="role === roles.MANAGER"

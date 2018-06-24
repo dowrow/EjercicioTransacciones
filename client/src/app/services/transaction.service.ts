@@ -44,7 +44,7 @@ export class TransactionService {
       userId: serverTransaction.user_id.valueOf(),
       courierId: serverTransaction.courier_id.valueOf(),
       isNewUser: serverTransaction.new_user != "no",
-      createdAt: new Date(+serverTransaction.created_at)
+      createdAt: new Date(serverTransaction.created_at.valueOf())
     };
     if (serverTransaction.destination && serverTransaction.destination) {
       transaction["origin"] = {
