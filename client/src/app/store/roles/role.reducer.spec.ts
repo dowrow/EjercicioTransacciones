@@ -11,7 +11,7 @@ describe("RoleReducer", () => {
       expect(state).toBe(initialState);
     });
   });
-  describe("undefined action", () => {
+  describe("SET_ROLE action", () => {
     it("should change the current role", () => {
       const initialState = { role: Role.MANAGER };
       const action = { type: SET_ROLE, payload: Role.CONTROLLER };
