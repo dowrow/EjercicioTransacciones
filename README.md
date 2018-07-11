@@ -1,9 +1,9 @@
 
-Citibox hiring exercise
+Exercise
 ====================================
 
 ## Intro
-En Citibox estamos actualizando nuestros paneles de gestión propios porque ahora mismo están hechos en COBOL y no encontramos gente que sepa COBOL :/ Para la primera versión vamos a tener un solo panel que muestre un listado de las transacciones que ocurren en la plataforma. Ahora mismo el equipo técnico está hasta arriba con unas nuevas funcionalidades así que necesitamos que nos echen un cable :)
+Estamos actualizando nuestros paneles de gestión propios porque ahora mismo están hechos en COBOL y no encontramos gente que sepa COBOL :/ Para la primera versión vamos a tener un solo panel que muestre un listado de las transacciones que ocurren en la plataforma. Ahora mismo el equipo técnico está hasta arriba con unas nuevas funcionalidades así que necesitamos que nos echen un cable :)
 Los paneles actuales es una aplicación con muchas ventanas y diferentes tipos de usuarios (roles) y aunque esta es una primera iteratión, en un futuro queremos mover todos los paneles al nuevo sistema.
 
 ## Necesidades
@@ -28,9 +28,9 @@ No sabemos si en un futuro se van a añadir más casos concretos para la gente d
 ### Gente de control
 Para comprobar que todo el trabajo se realiza correctamente y sacar alguna que otra métrica. Hay cuatro personas que necesitan ver las transacciones pero no necesitan saber la información de las localizaciones (origen y destino).
 
-## Entorno de Citibox
+## Entorno
 
-El equipo de Marketing está muy concienciado con que todos los desarrollos deben mantener una línea uniforme y acorde a la web comercial de Citibox. Sin olvidarnos de la labor de sabueso que desempeña nuestro equipo de QA (son muy meticulosos en su trabajo!).
+El equipo de Marketing está muy concienciado con que todos los desarrollos deben mantener una línea uniforme y acorde a la web comercial. Sin olvidarnos de la labor de sabueso que desempeña nuestro equipo de QA (son muy meticulosos en su trabajo!).
 
 Un compañero de gestión en un viaje espiritual a Nepal conocio a una chica, él ahora se ha hecho budista y vegetariano. Después de 3 años de noviazgo se casan en unos meses y nuestro compi pasa a trabajar en remoto desde Nepal aunque el internet allí va fatal. Son la pareja más feliz del edificio y su alegría se contagia mucho, ojalá los conozcas. No tenemos claro que velocidad de conexión va a tener o que dispositivos podrá usar nuestro compi.
 
@@ -71,6 +71,3 @@ docker stop server
 ## Requisitos del ejercicio
 - No se puede modificar el codigo fuente del server.
 - Puedes elegir cualquier tecnología para hacer el cliente.
-
-## Soporte
-Aunque el equipo de programación este hasta arriba se ha comprometido a resolver dudas y preguntas que te puedan surgir, si tienes algún problema avisa!
